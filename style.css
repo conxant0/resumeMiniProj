@@ -42,7 +42,7 @@ body {
 }
 
 .rightMenu {
-  gap: 8px;
+  gap: 12px;
   font-size: 12px;
 }
 
@@ -64,6 +64,7 @@ body {
 
 .batteryIcon {
   height: 30px;
+  margin-right: -12px;
 }
 
 .wifiIcon {
