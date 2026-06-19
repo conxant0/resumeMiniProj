@@ -73,13 +73,29 @@ body {
 }
 
 .dock {
-  width: 90%;
-  max-width: 340px;
-  height: 90px;
-  background-color: rgba(253, 241, 241, 0.815);
+  width: fit-content;
+  max-width: 90%;
+  height: 76px;
+  background-color: rgba(245, 245, 245, 0.38);
   position: absolute;
   left: 50%;
   bottom: 20px;
   transform: translateX(-50%);
-  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  border-radius: 26px;
+  padding: 0 18px;
+}
+
+.dockApps {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 18px;
+}
+
+.dockIcon {
+  height: 50px;
+  width: auto;
+  display: block;
 }
