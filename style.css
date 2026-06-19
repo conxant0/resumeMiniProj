@@ -11,7 +11,7 @@ body {
 
 .desktop {
   height: 100vh;
-  background: linear-gradient(135deg, #dbeafe, #668aad);
+  background: linear-gradient(135deg, #bbdce7, #42709e);
   overflow: hidden;
   position: relative;
 }
@@ -96,6 +96,34 @@ body {
 
 .dockIcon {
   height: 50px;
+  width: auto;
+  display: block;
+}
+
+.folders {
+  position: absolute;
+  top: 60px;
+  left: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.folder {
+  width: 82px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  color: white;
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  text-align: center;
+  user-select: none;
+}
+
+.folderIcon {
+  height: 75px;
   width: auto;
   display: block;
 }
