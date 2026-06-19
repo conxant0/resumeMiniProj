@@ -99,3 +99,36 @@ body {
   width: auto;
   display: block;
 }
+
+@media (max-width: 600px) {
+  .desktopOnly {
+    display: none;
+  }
+
+  .menuBar {
+    padding: 0 8px;
+  }
+
+  .leftMenu {
+    gap: 8px;
+  }
+
+  .rightMenu {
+    gap: 8px;
+  }
+
+  .dock {
+    height: 62px;
+    bottom: 14px;
+    padding: 0 14px;
+    border-radius: 22px;
+  }
+
+  .dockApps {
+    gap: 12px;
+  }
+
+  .dockIcon {
+    height: 42px;
+  }
+}
