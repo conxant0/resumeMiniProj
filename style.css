@@ -2,32 +2,70 @@
   box-sizing: border-box;
 }
 
+html,
 body {
   margin: 0;
+  height: 100%;
+  overflow: hidden;
 }
 
 .desktop {
-  min-height: 100vh;
+  height: 100vh;
   background: linear-gradient(135deg, #dbeafe, #f8fafc);
+  overflow: hidden;
 }
 
 .menuBar {
-  background-color: rgba(81, 81, 81, 0.75);
+  background-color: rgba(35, 35, 38, 0.72);
   width: 100%;
-  height: 30px;
+  height: 28px;
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 20px;
+  padding: 0 12px;
+  color: white;
+  font-family: Arial, sans-serif;
+  font-size: 13px;
+  line-height: 1;
+  user-select: none;
+}
+
+.leftMenu,
+.rightMenu {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
 }
 
 .leftMenu {
-  display: flex;
-  flex-direction: row;
+  gap: 15px;
+}
+
+.rightMenu {
+  gap: 8px;
+  font-size: 12px;
+}
+
+.appName {
+  font-weight: 600;
 }
 
 .menuLogo {
-  height: 20px;
-  margin-right: 10px;
+  height: 17px;
+  width: auto;
+  display: block;
+}
+
+.statusIcon {
+  width: auto;
+  display: block;
+  object-fit: contain;
+}
+
+.batteryIcon {
+  height: 30px;
+}
+
+.wifiIcon {
+  height: 14px;
 }
