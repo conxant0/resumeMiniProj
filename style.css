@@ -128,6 +128,10 @@ body {
   display: block;
 }
 
+.hidden {
+  display: none;
+}
+
 @media (max-width: 600px) {
   .desktopOnly {
     display: none;
