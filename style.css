@@ -19,14 +19,14 @@ body {
 .menuBar {
   background-color: rgba(35, 35, 38, 0.72);
   width: 100%;
-  height: 28px;
+  height: 36px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 12px;
+  padding: 0 16px;
   color: white;
   font-family: Arial, sans-serif;
-  font-size: 13px;
+  font-size: 15px;
   line-height: 1;
   user-select: none;
 }
@@ -39,12 +39,12 @@ body {
 }
 
 .leftMenu {
-  gap: 15px;
+  gap: 18px;
 }
 
 .rightMenu {
-  gap: 12px;
-  font-size: 12px;
+  gap: 14px;
+  font-size: 14px;
 }
 
 .appName {
@@ -52,7 +52,7 @@ body {
 }
 
 .menuLogo {
-  height: 17px;
+  height: 21px;
   width: auto;
   display: block;
 }
@@ -64,12 +64,12 @@ body {
 }
 
 .batteryIcon {
-  height: 30px;
-  margin-right: -12px;
+  height: 36px;
+  margin-right: -14px;
 }
 
 .wifiIcon {
-  height: 14px;
+  height: 17px;
 }
 
 .dock {
@@ -300,21 +300,102 @@ body {
   line-height: 1.45;
 }
 
+.projectsContent {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.projectCard {
+  background-color: #ffffff;
+  border: 1px solid #d5d5d5;
+  border-radius: 8px;
+  padding: 14px;
+}
+
+.projectHeader {
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  margin-bottom: 8px;
+}
+
+.projectHeader h3 {
+  margin: 0;
+  font-size: 16px;
+}
+
+.projectLinks {
+  display: flex;
+  gap: 8px;
+  white-space: nowrap;
+}
+
+.projectLinks a {
+  color: #1f5fa8;
+  font-size: 13px;
+  text-decoration: none;
+}
+
+.projectCard p {
+  margin: 8px 0 0;
+  color: #333;
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.contactIntro {
+  margin: 10px 0 18px;
+  color: #555;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.contactCard {
+  background-color: #ffffff;
+  border: 1px solid #d5d5d5;
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.contactCard h3 {
+  margin: 0 0 12px;
+  font-size: 18px;
+}
+
+.contactRows p,
+.openTo {
+  margin: 8px 0 0;
+  color: #333;
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+.contactRows a {
+  color: #1f5fa8;
+  text-decoration: none;
+}
+
+.openTo {
+  margin-top: 16px;
+  font-weight: 600;
+}
+
 @media (max-width: 600px) {
   .desktopOnly {
     display: none;
   }
 
   .menuBar {
-    padding: 0 8px;
+    padding: 0 10px;
   }
 
   .leftMenu {
-    gap: 8px;
+    gap: 10px;
   }
 
   .rightMenu {
-    gap: 8px;
+    gap: 10px;
   }
 
   .dock {
@@ -389,6 +470,24 @@ body {
   .entryHeader {
     flex-direction: column;
     gap: 2px;
+  }
+
+  .projectCard {
+    padding: 10px;
+  }
+
+  .projectHeader {
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .contactCard {
+    padding: 12px;
+  }
+
+  .contactRows p,
+  .openTo {
+    font-size: 13px;
   }
 
   .folders {
