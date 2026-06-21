@@ -138,11 +138,67 @@ body {
   left: 140px;
   width: 420px;
   height: 280px;
-  background-color: white;
-  border: 2px solid black;
-  border-radius: 8px;
-  padding: 16px;
-  color: black;
+  background-color: #f5f5f5;
+  border: 1px solid #9c9c9c;
+  border-radius: 10px;
+  color: #1f1f1f;
+  font-family: Arial, sans-serif;
+  overflow: hidden;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.28);
+}
+
+.windowBar {
+  height: 34px;
+  background-color: #e7e7e7;
+  border-bottom: 1px solid #c7c7c7;
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding: 0 12px;
+}
+
+.windowButtons {
+  display: flex;
+  gap: 8px;
+}
+
+.windowButton {
+  width: 12px;
+  height: 12px;
+  border: none;
+  border-radius: 50%;
+  padding: 0;
+}
+
+.closeButton {
+  background-color: #ff5f57;
+}
+
+.minimizeButton {
+  background-color: #febc2e;
+}
+
+.expandButton {
+  background-color: #28c840;
+}
+
+.windowTitle {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.windowContent {
+  height: calc(100% - 34px);
+  padding: 18px;
+  overflow: auto;
+}
+
+.windowContent h2 {
+  margin: 0;
+  font-size: 22px;
 }
 
 @media (max-width: 600px) {

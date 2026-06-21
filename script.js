@@ -55,3 +55,12 @@ const contactWindow = document.querySelector(".contactWindow");
 contactFolder.addEventListener("click", () => {
   contactWindow.classList.toggle("hidden");
 });
+
+const closeButton = document.querySelectorAll(".closeButton");
+
+closeButton.forEach((cButton) => {
+  cButton.addEventListener("click", () => {
+    const cWindow = cButton.closest(".folderWindow");
+    cWindow.classList.toggle("hidden");
+  });
+});
