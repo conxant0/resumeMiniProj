@@ -24,6 +24,12 @@ setInterval(() => {
 let openCount = 0; // Counts how many folders are open
 
 const positionWindow = (folderWindow) => {
+  if (window.innerWidth <= 600) {
+    folderWindow.style.top = "";
+    folderWindow.style.left = "";
+    return;
+  }
+
   folderWindow.style.top = 90 + openCount * 20 + "px";
   folderWindow.style.left = 140 + openCount * 20 + "px";
   openCount++;

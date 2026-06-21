@@ -234,11 +234,42 @@ body {
   }
 
   .folderWindow {
+    top: 140px;
     left: 50%;
-    top: 70px;
     transform: translateX(-50%);
-    width: 90%;
-    max-width: none;
-    height: 55vh;
+    width: 82%;
+    height: 42vh;
+  }
+
+  .windowBar {
+    height: 30px;
+  }
+
+  .windowContent {
+    height: calc(100% - 30px);
+    padding: 12px;
+  }
+
+  .windowContent h2 {
+    font-size: 18px;
+  }
+
+  .folders {
+    top: 50px;
+    left: 12px;
+    right: 12px;
+    display: grid;
+    grid-template-columns: repeat(2, 88px);
+    justify-content: center;
+    gap: 20px 28px;
+  }
+
+  .folder {
+    width: 88px;
+    font-size: 12px;
+  }
+
+  .folderIcon {
+    height: 70px;
   }
 }
