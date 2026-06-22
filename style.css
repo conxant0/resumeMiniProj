@@ -2,11 +2,16 @@
   box-sizing: border-box;
 }
 
+:root {
+  --system-font: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
 html,
 body {
   margin: 0;
   height: 100%;
   overflow: hidden;
+  font-family: var(--system-font);
 }
 
 .desktop {
@@ -28,6 +33,17 @@ body {
   z-index: 0;
 }
 
+.desktop::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.18), rgba(0, 0, 0, 0.28)),
+    radial-gradient(circle at 15% 10%, rgba(0, 0, 0, 0.08), transparent 32%);
+  pointer-events: none;
+  z-index: 1;
+}
+
 .menuBar {
   background-color: rgba(35, 35, 38, 0.72);
   width: 100%;
@@ -37,7 +53,7 @@ body {
   align-items: center;
   padding: 0 16px;
   color: white;
-  font-family: Arial, sans-serif;
+  font-family: var(--system-font);
   font-size: 15px;
   line-height: 1;
   user-select: none;
@@ -113,6 +129,8 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
+  border-radius: 16px;
   transition: transform 160ms ease;
 }
 
@@ -138,6 +156,33 @@ body {
   transform: translateY(-1px) scale(0.94);
 }
 
+.dockTooltip {
+  position: absolute;
+  bottom: calc(100% + 10px);
+  left: 50%;
+  transform: translateX(-50%) translateY(4px);
+  background-color: rgba(30, 31, 35, 0.88);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 7px;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1;
+  opacity: 0;
+  padding: 7px 9px;
+  pointer-events: none;
+  white-space: nowrap;
+  transition:
+    opacity 140ms ease,
+    transform 140ms ease;
+}
+
+.dockApps a:hover .dockTooltip,
+.dockApps a:focus-visible .dockTooltip {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
 .folders {
   position: absolute;
   top: 60px;
@@ -155,7 +200,7 @@ body {
   align-items: center;
   gap: 5px;
   color: white;
-  font-family: Arial, sans-serif;
+  font-family: var(--system-font);
   font-size: 12px;
   text-align: center;
   user-select: none;
@@ -197,6 +242,19 @@ body {
   transform: translateY(0) scale(0.96);
 }
 
+.folder:focus-visible,
+.dockApps a:focus-visible,
+.windowButton:focus-visible,
+.projectLinks a:focus-visible {
+  outline: 3px solid rgba(255, 255, 255, 0.9);
+  outline-offset: 4px;
+  filter: drop-shadow(0 0 8px rgba(31, 95, 168, 0.62));
+}
+
+.projectLinks a:focus-visible {
+  outline-color: rgba(31, 95, 168, 0.78);
+}
+
 .hidden {
   display: none;
 }
@@ -213,7 +271,7 @@ body {
   border: 1px solid rgba(180, 185, 195, 0.85);
   border-radius: 10px;
   color: #1f1f1f;
-  font-family: Arial, sans-serif;
+  font-family: var(--system-font);
   overflow: hidden;
   box-shadow: 0 18px 40px rgba(0, 0, 0, 0.28);
   z-index: 3;
@@ -404,9 +462,29 @@ body {
 }
 
 .projectLinks a {
-  color: #1f5fa8;
+  align-items: center;
+  background-color: rgba(31, 95, 168, 0.1);
+  border: 1px solid rgba(31, 95, 168, 0.24);
+  border-radius: 999px;
+  color: #174f8d;
+  display: inline-flex;
   font-size: 13px;
+  font-weight: 600;
+  min-height: 28px;
+  padding: 5px 10px;
   text-decoration: none;
+  transition:
+    background-color 160ms ease,
+    border-color 160ms ease,
+    color 160ms ease,
+    transform 160ms ease;
+}
+
+.projectLinks a:hover {
+  background-color: #1f5fa8;
+  border-color: #1f5fa8;
+  color: #ffffff;
+  transform: translateY(-1px);
 }
 
 .projectCard p {
