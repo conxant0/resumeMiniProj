@@ -35,55 +35,50 @@ const positionWindow = (folderWindow) => {
   openCount++;
 };
 
+const openFolderWindow = (folderWindow) => {
+  if (folderWindow.classList.contains("hidden")) {
+    positionWindow(folderWindow);
+    folderWindow.classList.remove("hidden");
+  }
+};
+
+const connectFolder = (folder, folderWindow) => {
+  folder.addEventListener("click", () => {
+    openFolderWindow(folderWindow);
+  });
+
+  folder.addEventListener("keydown", (event) => {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      openFolderWindow(folderWindow);
+    }
+  });
+};
+
 const aboutFolder = document.querySelector(".aboutFolder");
 const aboutWindow = document.querySelector(".aboutWindow");
 
-aboutFolder.addEventListener("click", () => {
-  if (aboutWindow.classList.contains("hidden")) {
-    positionWindow(aboutWindow);
-    aboutWindow.classList.remove("hidden");
-  }
-});
+connectFolder(aboutFolder, aboutWindow);
 
 const skillsFolder = document.querySelector(".skillsFolder");
 const skillsWindow = document.querySelector(".skillsWindow");
 
-skillsFolder.addEventListener("click", () => {
-  if (skillsWindow.classList.contains("hidden")) {
-    positionWindow(skillsWindow);
-    skillsWindow.classList.remove("hidden");
-  }
-});
+connectFolder(skillsFolder, skillsWindow);
 
 const educationFolder = document.querySelector(".educationFolder");
 const educationWindow = document.querySelector(".educationWindow");
 
-educationFolder.addEventListener("click", () => {
-  if (educationWindow.classList.contains("hidden")) {
-    positionWindow(educationWindow);
-    educationWindow.classList.remove("hidden");
-  }
-});
+connectFolder(educationFolder, educationWindow);
 
 const projectsFolder = document.querySelector(".projectsFolder");
 const projectsWindow = document.querySelector(".projectsWindow");
 
-projectsFolder.addEventListener("click", () => {
-  if (projectsWindow.classList.contains("hidden")) {
-    positionWindow(projectsWindow);
-    projectsWindow.classList.remove("hidden");
-  }
-});
+connectFolder(projectsFolder, projectsWindow);
 
 const contactFolder = document.querySelector(".contactFolder");
 const contactWindow = document.querySelector(".contactWindow");
 
-contactFolder.addEventListener("click", () => {
-  if (contactWindow.classList.contains("hidden")) {
-    positionWindow(contactWindow);
-    contactWindow.classList.remove("hidden");
-  }
-});
+connectFolder(contactFolder, contactWindow);
 
 const closeButton = document.querySelectorAll(".closeButton");
 

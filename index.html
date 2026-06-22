@@ -35,7 +35,7 @@
         </div>
       </div>
       <div class="folders">
-        <div class="folder aboutFolder">
+        <div class="folder aboutFolder" role="button" tabindex="0">
           <img
             class="folderIcon aboutMe"
             src="assets/folder.png"
@@ -43,11 +43,11 @@
           />
           <span>About Me</span>
         </div>
-        <div class="folder skillsFolder">
+        <div class="folder skillsFolder" role="button" tabindex="0">
           <img class="folderIcon skills" src="assets/folder.png" alt="Skills" />
           <span>Skills</span>
         </div>
-        <div class="folder educationFolder">
+        <div class="folder educationFolder" role="button" tabindex="0">
           <img
             class="folderIcon education"
             src="assets/folder.png"
@@ -55,7 +55,7 @@
           />
           <span>Education</span>
         </div>
-        <div class="folder projectsFolder">
+        <div class="folder projectsFolder" role="button" tabindex="0">
           <img
             class="folderIcon projects"
             src="assets/folder.png"
@@ -63,7 +63,7 @@
           />
           <span>Projects</span>
         </div>
-        <div class="folder contactFolder">
+        <div class="folder contactFolder" role="button" tabindex="0">
           <img
             class="folderIcon contact"
             src="assets/folder.png"
@@ -504,27 +504,40 @@
       </div>
       <div class="dock">
         <div class="dockApps">
-          <a href="https://github.com/conxant0" target="_blank">
+          <a
+            href="https://github.com/conxant0"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="GitHub"
+          >
             <img class="dockIcon github" src="assets/github.png" alt="Github" />
+            <span class="dockTooltip">GitHub</span>
           </a>
           <a
             href="https://www.linkedin.com/in/jezreelchadlumbab/"
             target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn"
           >
             <img
               class="dockIcon linkedin"
               src="assets/linkedin.png"
               alt="Linkedin"
             />
+            <span class="dockTooltip">LinkedIn</span>
           </a>
-          <a href="mailto:jglumbab@gmail.com">
+          <a href="mailto:jglumbab@gmail.com" aria-label="Email">
             <img class="dockIcon gmail" src="assets/gmail.png" alt="Gmail" />
+            <span class="dockTooltip">Email</span>
           </a>
           <a
             href="https://drive.google.com/file/d/1-3NNxwtmYo1BzhltLqZ_vTLB6Aj3u4Kf/view?usp=sharing"
             target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Resume"
           >
             <img class="dockIcon resume" src="assets/resume.png" alt="Resume" />
+            <span class="dockTooltip">Resume</span>
           </a>
         </div>
       </div>
