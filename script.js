@@ -93,3 +93,32 @@ closeButton.forEach((cButton) => {
     cWindow.classList.add("hidden");
   });
 });
+
+const windowBars = document.querySelectorAll(".windowBar");
+
+windowBars.forEach((windowBar) => {
+  windowBar.addEventListener("mousedown", (event) => {
+    const folderWindow = windowBar.closest(".folderWindow");
+
+    if (window.innerWidth <= 600) {
+      return;
+    }
+
+    const windowRect = folderWindow.getBoundingClientRect();
+    const offsetX = event.clientX - windowRect.left;
+    const offsetY = event.clientY - windowRect.top;
+
+    const moveWindow = (moveEvent) => {
+      folderWindow.style.left = moveEvent.clientX - offsetX + "px";
+      folderWindow.style.top = moveEvent.clientY - offsetY + "px";
+    };
+
+    const stopDragging = () => {
+      document.removeEventListener("mousemove", moveWindow);
+      document.removeEventListener("mouseup", stopDragging);
+    };
+
+    document.addEventListener("mousemove", moveWindow);
+    document.addEventListener("mouseup", stopDragging);
+  });
+});
