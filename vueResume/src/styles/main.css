@@ -3,7 +3,7 @@
 }
 
 :root {
-  --system-font: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --system-font: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
 
 html,
@@ -12,6 +12,14 @@ body {
   height: 100%;
   overflow: hidden;
   font-family: var(--system-font);
+}
+
+body {
+  background: #42709e;
+}
+
+#app {
+  height: 100%;
 }
 
 .desktop {
@@ -34,7 +42,7 @@ body {
 }
 
 .desktop::before {
-  content: "";
+  content: '';
   position: absolute;
   inset: 0;
   background:
@@ -44,62 +52,8 @@ body {
   z-index: 1;
 }
 
-.menuBar {
-  background-color: rgba(35, 35, 38, 0.72);
-  width: 100%;
-  height: 36px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 16px;
-  color: white;
-  font-family: var(--system-font);
-  font-size: 15px;
-  line-height: 1;
-  user-select: none;
-  position: relative;
-  z-index: 2;
-}
-
-.leftMenu,
-.rightMenu {
-  display: flex;
-  align-items: center;
-  white-space: nowrap;
-}
-
-.leftMenu {
-  gap: 18px;
-}
-
-.rightMenu {
-  gap: 14px;
-  font-size: 14px;
-}
-
 .appName {
   font-weight: 600;
-}
-
-.menuLogo {
-  height: 21px;
-  width: auto;
-  display: block;
-}
-
-.statusIcon {
-  width: auto;
-  display: block;
-  object-fit: contain;
-}
-
-.batteryIcon {
-  height: 36px;
-  margin-right: -14px;
-}
-
-.wifiIcon {
-  height: 17px;
 }
 
 .dock {
@@ -255,10 +209,6 @@ body {
   outline-color: rgba(31, 95, 168, 0.78);
 }
 
-.hidden {
-  display: none;
-}
-
 .folderWindow {
   position: absolute;
   top: 90px;
@@ -357,6 +307,10 @@ body {
   margin: 14px 0 0;
   font-size: 16px;
   line-height: 1.5;
+}
+
+.skillsContent {
+  display: block;
 }
 
 .skillsIntro {
