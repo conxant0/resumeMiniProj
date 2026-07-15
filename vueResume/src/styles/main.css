@@ -3,7 +3,7 @@
 }
 
 :root {
-  --system-font: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --system-font: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
 html,
@@ -42,7 +42,7 @@ body {
 }
 
 .desktop::before {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
   background:
@@ -146,11 +146,6 @@ body {
   gap: 18px;
   z-index: 2;
 }
-
-
-
-
-
 
 @media (max-width: 600px) {
   .desktopOnly {
