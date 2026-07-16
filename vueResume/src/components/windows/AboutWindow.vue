@@ -12,14 +12,20 @@ defineProps({
     type: Array,
     required: true,
   },
-})
+});
 </script>
 
 <template>
-  <div class="aboutContent">
-    <img class="profilePhoto" :src="photo" alt="Profile photo" />
-    <div class="aboutText">
-      <h2>{{ title }}</h2>
+  <div
+    class="is-flex is-flex-direction-column is-align-items-center has-text-centered aboutContent"
+  >
+    <img
+      class="profilePhoto image is-square"
+      :src="photo"
+      alt="Profile photo"
+    />
+    <div class="content">
+      <h2 class="title is-4">{{ title }}</h2>
       <p v-for="paragraph in paragraphs" :key="paragraph">{{ paragraph }}</p>
     </div>
   </div>
@@ -27,11 +33,7 @@ defineProps({
 
 <style scoped>
 .aboutContent {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   gap: 16px;
-  text-align: center;
 }
 
 .profilePhoto {
@@ -42,14 +44,9 @@ defineProps({
   background-color: #d8d8d8;
 }
 
-.aboutText {
-  max-width: 560px;
-}
-
-.aboutText p {
+.content p {
   margin: 14px 0 0;
   font-size: 16px;
-  line-height: 1.5;
 }
 
 @media (max-width: 600px) {
