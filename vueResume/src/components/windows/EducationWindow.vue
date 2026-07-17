@@ -16,36 +16,45 @@ defineProps({
     type: Array,
     required: true,
   },
-})
+});
 </script>
 
 <template>
   <div class="educationContent">
-    <h2>{{ title }}</h2>
-    <div v-for="card in cards" :key="card.heading" class="educationCard">
-      <div class="entryHeader">
-        <div>
-          <h3>{{ card.heading }}</h3>
-          <p>{{ card.location }}</p>
+    <h2 class="title is-4">{{ title }}</h2>
+    <div v-for="card in cards" :key="card.heading" class="educationCard card">
+      <div class="card-content">
+        <div class="entryHeader">
+          <div>
+            <h3 class="title is-5 mb-1">{{ card.heading }}</h3>
+            <p class="has-text-grey">{{ card.location }}</p>
+          </div>
+          <span class="has-text-grey is-size-7">{{ card.dates }}</span>
         </div>
-        <span>{{ card.dates }}</span>
+        <p v-for="line in card.lines" :key="line.strong">
+          <strong>{{ line.strong }}</strong
+          >{{ line.text }}
+        </p>
       </div>
-      <p v-for="line in card.lines" :key="line.strong">
-        <strong>{{ line.strong }}</strong>{{ line.text }}
-      </p>
     </div>
 
-    <h2>{{ organizationsTitle }}</h2>
-    <div v-for="organization in organizations" :key="organization.heading" class="educationCard">
-      <div class="entryHeader">
-        <div>
-          <h3>{{ organization.heading }}</h3>
-          <p>{{ organization.location }}</p>
+    <h2 class="title is-4 mt-4">{{ organizationsTitle }}</h2>
+    <div
+      v-for="organization in organizations"
+      :key="organization.heading"
+      class="educationCard card"
+    >
+      <div class="card-content">
+        <div class="entryHeader">
+          <div>
+            <h3 class="title is-5 mb-1">{{ organization.heading }}</h3>
+            <p class="has-text-grey is-size-7">{{ organization.location }}</p>
+          </div>
+          <span class="has-text-grey is-size-7">{{ organization.dates }}</span>
         </div>
-        <span>{{ organization.dates }}</span>
+        <p class="has-text-weight-semibold">{{ organization.role }}</p>
+        <p v-for="line in organization.lines" :key="line">{{ line }}</p>
       </div>
-      <p><strong>{{ organization.role }}</strong></p>
-      <p v-for="line in organization.lines" :key="line">{{ line }}</p>
     </div>
   </div>
 </template>
@@ -58,11 +67,8 @@ defineProps({
 }
 
 .educationCard {
-  background-color: #ffffff;
   border: 1px solid #d5d5d5;
   border-left: 4px solid #42709e;
-  border-radius: 8px;
-  padding: 14px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
   transition:
     border-color 0.2s ease,
@@ -83,30 +89,18 @@ defineProps({
   margin-bottom: 10px;
 }
 
-.entryHeader h3 {
-  margin: 0;
-  font-size: 16px;
-}
-
 .entryHeader p,
 .entryHeader span {
-  margin: 4px 0 0;
-  color: #555;
-  font-size: 13px;
+  margin-top: 4px;
 }
 
 .educationCard p {
   margin: 8px 0 0;
-  color: #333;
   font-size: 13px;
   line-height: 1.45;
 }
 
 @media (max-width: 600px) {
-  .educationCard {
-    padding: 10px;
-  }
-
   .entryHeader {
     flex-direction: column;
     gap: 2px;
