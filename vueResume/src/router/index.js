@@ -3,6 +3,8 @@ import Desktop from "../components/Desktop.vue";
 import AboutView from "../views/AboutView.vue";
 import ContactView from "../views/ContactView.vue";
 import EducationView from "../views/EducationView.vue";
+import ProjectsView from "../views/ProjectsView.vue";
+import SkillsView from "../views/SkillsView.vue";
 
 const routes = [
   {
@@ -24,6 +26,16 @@ const routes = [
     path: "/education",
     name: "Education",
     component: EducationView,
+  },
+  {
+    path: "/projects",
+    name: "Projects",
+    component: ProjectsView,
+  },
+  {
+    path: "/skills",
+    name: "Skills",
+    component: SkillsView,
   },
 ];
 
