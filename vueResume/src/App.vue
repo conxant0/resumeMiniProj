@@ -1,7 +1,7 @@
 <script setup>
-import Desktop from './components/Desktop.vue'
+import { RouterView } from 'vue-router'
 </script>
 
 <template>
-  <Desktop />
+  <RouterView />
 </template>
