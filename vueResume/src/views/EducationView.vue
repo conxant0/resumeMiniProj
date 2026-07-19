@@ -1,8 +1,15 @@
 <script setup>
+import { computed } from "vue";
 import { useRouter } from "vue-router";
 import WindowChrome from "../components/WindowChrome.vue";
 import EducationWindow from "../components/windows/EducationWindow.vue";
 import { educationSection } from "../data/portfolio";
+
+const WIDTH = 720;
+const HEIGHT = 620;
+
+const x = computed(() => Math.round((window.innerWidth - WIDTH) / 2));
+const y = computed(() => Math.round((window.innerHeight - HEIGHT) / 2));
 
 const router = useRouter();
 
@@ -15,8 +22,8 @@ const closeWindow = () => {
   <WindowChrome
     id="education"
     title="My Education"
-    :x="140"
-    :y="90"
+    :x="x"
+    :y="y"
     :z-index="3"
     @close="closeWindow"
   >
