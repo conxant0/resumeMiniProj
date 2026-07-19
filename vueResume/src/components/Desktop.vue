@@ -1,5 +1,6 @@
 <script setup>
 import { computed, reactive } from "vue";
+import { useRouter } from "vue-router";
 import FolderIcon from "./FolderIcon.vue";
 import WindowChrome from "./WindowChrome.vue";
 import AboutWindow from "./windows/AboutWindow.vue";
@@ -17,6 +18,8 @@ import {
   projectsSection,
   skillsSection,
 } from "../data/portfolio";
+
+const router = useRouter();
 
 const windowComponents = {
   about: AboutWindow,
@@ -91,6 +94,10 @@ const focusWindow = (id) => {
   openOrder.push(id);
 };
 
+const expandWindow = (id) => {
+  router.push(`/${id}`);
+};
+
 const moveWindow = ({ id, x, y }) => {
   const state = openWindows[id];
   state.x = x;
@@ -140,6 +147,7 @@ const openWindowsList = computed(() =>
         :y="window.y"
         :z-index="window.zIndex"
         @close="closeWindow"
+        @expand="expandWindow"
         @focus="focusWindow"
         @move="moveWindow"
       >

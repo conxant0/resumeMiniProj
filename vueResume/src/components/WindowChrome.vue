@@ -1,5 +1,5 @@
 <script setup>
-import { computed, onBeforeUnmount, ref } from 'vue'
+import { computed, onBeforeUnmount, ref } from "vue";
 
 const props = defineProps({
   id: {
@@ -22,67 +22,72 @@ const props = defineProps({
     type: Number,
     required: true,
   },
-})
+});
 
-const emit = defineEmits(['close', 'focus', 'move'])
+const emit = defineEmits(["close", "expand", "focus", "move"]);
 
-const windowRef = ref(null)
-let dragState = null
+const windowRef = ref(null);
+let dragState = null;
 
 const windowStyle = computed(() => ({
   top: `${props.y}px`,
   left: `${props.x}px`,
   zIndex: props.zIndex,
-}))
+}));
 
 const stopDragging = () => {
   if (!dragState) {
-    return
+    return;
   }
 
-  document.removeEventListener('mousemove', handlePointerMove)
-  document.removeEventListener('mouseup', stopDragging)
-  dragState = null
-}
+  document.removeEventListener("mousemove", handlePointerMove);
+  document.removeEventListener("mouseup", stopDragging);
+  dragState = null;
+};
 
 const handlePointerMove = (event) => {
   if (!dragState) {
-    return
+    return;
   }
 
-  emit('move', {
+  emit("move", {
     id: props.id,
     x: event.clientX - dragState.offsetX,
     y: event.clientY - dragState.offsetY,
-  })
-}
+  });
+};
 
 const startDrag = (event) => {
   if (window.innerWidth <= 600 || event.button !== 0) {
-    return
+    return;
   }
 
-  const rect = windowRef.value?.getBoundingClientRect()
+  const rect = windowRef.value?.getBoundingClientRect();
 
   if (!rect) {
-    return
+    return;
   }
 
-  emit('focus', props.id)
+  emit("focus", props.id);
   dragState = {
     offsetX: event.clientX - rect.left,
     offsetY: event.clientY - rect.top,
-  }
+  };
 
-  document.addEventListener('mousemove', handlePointerMove)
-  document.addEventListener('mouseup', stopDragging)
-}
+  document.addEventListener("mousemove", handlePointerMove);
+  document.addEventListener("mouseup", stopDragging);
+};
 
-onBeforeUnmount(stopDragging)
+onBeforeUnmount(stopDragging);
 </script>
 
 <template>
-  <section ref="windowRef" class="folderWindow" :style="windowStyle" @mousedown="emit('focus', id)">
+  <section
+    ref="windowRef"
+    class="folderWindow"
+    :style="windowStyle"
+    @mousedown="emit('focus', id)"
+  >
     <div class="windowBar" @mousedown="startDrag">
       <div class="windowButtons">
         <button
@@ -91,8 +96,17 @@ onBeforeUnmount(stopDragging)
           aria-label="Close window"
           @click.stop="emit('close', id)"
         ></button>
-        <button class="windowButton minimizeButton" type="button" aria-label="Minimize"></button>
-        <button class="windowButton expandButton" type="button" aria-label="Expand"></button>
+        <button
+          class="windowButton minimizeButton"
+          type="button"
+          aria-label="Minimize"
+        ></button>
+        <button
+          class="windowButton expandButton"
+          type="button"
+          aria-label="Expand"
+          @click.stop="emit('expand', id)"
+        ></button>
       </div>
       <span class="windowTitle">{{ title }}</span>
     </div>
