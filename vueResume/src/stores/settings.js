@@ -2,11 +2,12 @@ import { defineStore } from "pinia";
 
 export const useSettingsStore = defineStore("settings", {
   state: () => ({
-    theme: "light",
+    theme: localStorage.getItem("theme") || "light",
   }),
   actions: {
     toggleTheme() {
       this.theme = this.theme === "light" ? "dark" : "light";
+      localStorage.setItem("theme", this.theme);
     },
   },
 });

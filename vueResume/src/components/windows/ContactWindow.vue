@@ -72,7 +72,7 @@ defineProps({
 
 .contactRows p {
   margin: 8px 0 0;
-  color: #333;
+  color: #666464;
   font-size: 14px;
   line-height: 1.45;
 }
