@@ -21,3 +21,21 @@ body {
 #app {
   height: 100%;
 }
+
+.theme-light .folderWindow {
+  background-color: rgba(245, 247, 250, 0.94);
+  color: #1f1f1f;
+}
+
+.theme-light .windowBar {
+  background-color: rgba(232, 235, 240, 0.96);
+}
+
+.theme-dark .folderWindow {
+  background-color: #2d2d2d;
+  color: #e0e0e0;
+}
+
+.theme-dark .windowBar {
+  background-color: #383838;
+}

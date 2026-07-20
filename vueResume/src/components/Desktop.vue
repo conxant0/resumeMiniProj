@@ -9,6 +9,8 @@ import EducationWindow from "./windows/EducationWindow.vue";
 import ProjectsWindow from "./windows/ProjectsWindow.vue";
 import ContactWindow from "./windows/ContactWindow.vue";
 
+import { useSettingsStore } from "../stores/settings";
+
 import {
   aboutSection,
   contactSection,
@@ -18,6 +20,8 @@ import {
   projectsSection,
   skillsSection,
 } from "../data/portfolio";
+
+const settingsStore = useSettingsStore();
 
 const router = useRouter();
 
@@ -170,6 +174,9 @@ const openWindowsList = computed(() =>
           <img class="dockIcon" :src="link.icon" :alt="link.alt" />
           <span class="dockTooltip">{{ link.label }}</span>
         </a>
+        <button class="dockThemeBtn" @click="settingsStore.toggleTheme()">
+          {{ settingsStore.theme === 'light' ? '🌙' : '☀️' }}
+        </button>
       </div>
     </div>
   </main>
@@ -227,6 +234,25 @@ const openWindowsList = computed(() =>
   justify-content: center;
   align-items: center;
   gap: 18px;
+}
+
+.dockThemeBtn {
+  background: none;
+  border: none;
+  color: #ffffff;
+  font-size: 28px;
+  padding: 0;
+  margin-left: 6px;
+  cursor: pointer;
+  transition: transform 160ms ease;
+}
+
+.dockThemeBtn:hover {
+  transform: translateY(-5px);
+}
+
+.dockThemeBtn:active {
+  transform: translateY(-1px) scale(0.94);
 }
 
 .dockApps a {
