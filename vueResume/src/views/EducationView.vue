@@ -1,32 +1,14 @@
 <script setup>
-import { computed } from "vue";
-import { useRouter } from "vue-router";
 import WindowChrome from "../components/WindowChrome.vue";
 import EducationWindow from "../components/windows/EducationWindow.vue";
 import { educationSection } from "../data/portfolio";
+import { useWindowCenter } from "../composables/useWindowCenter";
 
-const WIDTH = 720;
-const HEIGHT = 620;
-
-const x = computed(() => Math.round((window.innerWidth - WIDTH) / 2));
-const y = computed(() => Math.round((window.innerHeight - HEIGHT) / 2));
-
-const router = useRouter();
-
-const closeWindow = () => {
-  router.push("/");
-};
+const { x, y, closeWindow } = useWindowCenter();
 </script>
 
 <template>
-  <WindowChrome
-    id="education"
-    title="My Education"
-    :x="x"
-    :y="y"
-    :z-index="3"
-    @close="closeWindow"
-  >
+  <WindowChrome id="education" title="My Education" :x="x" :y="y" :z-index="3" @close="closeWindow">
     <EducationWindow v-bind="educationSection" />
   </WindowChrome>
 </template>
