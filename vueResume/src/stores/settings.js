@@ -1,13 +1,13 @@
+import { ref } from "vue";
 import { defineStore } from "pinia";
 
-export const useSettingsStore = defineStore("settings", {
-  state: () => ({
-    theme: localStorage.getItem("theme") || "light",
-  }),
-  actions: {
-    toggleTheme() {
-      this.theme = this.theme === "light" ? "dark" : "light";
-      localStorage.setItem("theme", this.theme);
-    },
-  },
+export const useSettingsStore = defineStore("settings", () => {
+  const theme = ref(localStorage.getItem("theme") || "light");
+
+  function toggleTheme() {
+    theme.value = theme.value === "light" ? "dark" : "light";
+    localStorage.setItem("theme", theme.value);
+  }
+
+  return { theme, toggleTheme };
 });
